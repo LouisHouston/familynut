@@ -1,4 +1,8 @@
-# What is the point of this app?
+# MVP DUE MAY 25th, 2025
+
+### How to Start a dev build
+
+## What is the point of this app?
 
 The purpose of this app is to create a family nutritional app
 
@@ -9,7 +13,8 @@ also the recipes should be divied up by person to person so not a 5lb ham for 2 
 
 there should also be a community tab for sharing experiences and custom recipes and also really great deals etc. communal space type ish
 
-## 3.8.25
-# 1st foundational git
+### 3.8.25
+## 1st foundational git
 Using expo for deployment and testing, firebase for Oauth and dbing for now super simple want an mvp up and running
 reactnative and expo serve the front and backend supp
+

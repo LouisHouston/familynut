@@ -1,39 +1,27 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { useAuth } from "@/scripts/AuthProvider";
+import { useRouter } from "expo-router";
+import { View, Text, Button, StyleSheet } from "react-native";
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import Login from '@/components/Login';
+export default function HomeScreen() {
+  const { user, logout } = useAuth();
+  const router = useRouter();
 
-
-export default function ProfileScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">login!</ThemedText>
-      </ThemedView>
-    <Login />
-    </ParallaxScrollView>
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>
+        {user ? `Welcome, ${user.email}` : "Welcome!"}
+      </Text>
+
+      {user ? (
+        <Button title="Logout" onPress={logout} />
+      ) : (
+        <Button title="Go to Login" onPress={() => router.push("/login")} />
+      )}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  reactLogo: {
-    width: 100,
-    height: 100,
-  },
-  titleContainer: {
-    padding: 20,
-    alignItems: 'center',
-  },
-  stepContainer: {
-    padding: 20,
-  },
+  container: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#000" },
+  welcomeText: { color: "#fff", fontSize: 20, marginBottom: 20 },
 });

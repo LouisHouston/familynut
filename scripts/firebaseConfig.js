@@ -1,10 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; // ✅ Correct import for Firestore
 
 const firebaseConfig = {
   apiKey: process.env.EXPO_PUBLIC_API_KEY,
   authDomain: process.env.EXPO_PUBLIC_AUTH_DOM,
-  projectId:  process.env.projectId,
+  projectId:  process.env.EXPO_PUBLIC_PROJECT_ID,
   storageBucket:  process.env.storageBucket,
   messagingSenderId: process.env.messagingSenderId,
   appId: process.env.appId,
@@ -14,8 +15,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
+//const googleProvider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
 
-export { auth, googleProvider, db };
+export { db, auth };
