@@ -18,3 +18,7 @@ there should also be a community tab for sharing experiences and custom recipes 
 Using expo for deployment and testing, firebase for Oauth and dbing for now super simple want an mvp up and running
 reactnative and expo serve the front and backend supp
 
+
+### 3.16.25
+## User Reg & Login
+User registration and login working through firebase, need to connect the auth providers to pop up but may not be completely necessary for the MVP. Still need to find the proper way to connect our own running LLM and fine tune (hardest part) for specifically cooking, nutrition, family profiles, adding members. Next stop is to start the DB connecting to users.
